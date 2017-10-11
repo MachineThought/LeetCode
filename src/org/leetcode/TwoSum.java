@@ -8,6 +8,14 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+ * You may assume that each input would have exactly one solution, and you may not use the same element twice.
+ * Example:
+ * Given nums = [2, 7, 11, 15], target = 9,
+ * Because nums[0] + nums[1] = 2 + 7 = 9,
+ * return [0, 1].
+ */
 public class TwoSum {
     public int[] twoSum(int[] numbers, int target) {
         int[] result = new int[2];
@@ -48,8 +56,7 @@ public class TwoSum {
         Map<Integer, Integer> tempMap = new HashMap<>();
 
         for (int i = 0; i < num.length; i++) {
-            Integer another = target - num[i];
-            Integer anotherIndex = tempMap.get(another);
+            Integer anotherIndex = tempMap.get(target - num[i]);
 
             if (anotherIndex != null) {
                 return new Integer[]{anotherIndex, i};
@@ -90,14 +97,15 @@ public class TwoSum {
     public void testTowSumONN() {
         testGroup(TwoSum.class, "towSumONN");
     }
+
     @Test
-    public void testTowSumON(){
+    public void testTowSumON() {
         testGroup(TwoSum.class, "towSumON");
     }
 
     @Test
-    public void testTowSum(){
-        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15},9)));
+    public void testTowSum() {
+        System.out.println(Arrays.toString(twoSum(new int[]{2, 7, 11, 15}, 9)));
     }
 
 
